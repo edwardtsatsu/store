@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+development:
+  <<: *default
+  database: DEMO_DB
+  username: <%= ENV['DEMO_DB_USERNAME'] %>
+  password: <%= ENV['DEMO_DB_PASSWORD'] %>
+  host: localhost
+  port: 5432
+test:
+  <<: *default
+  database: DEMO_DB_TEST
+  username: <%= ENV['DEMO_DB_USERNAME'] %>
+  password: <%= ENV['DEMO_DB_PASSWORD'] %>
+production:
+  <<: *default
+  database: DEMO_DB_PRO
+  username: <%= ENV['DEMO_DB_USERNAME'] %>
+  password: <%= ENV['DEMO_DB_PASSWORD'] %>
